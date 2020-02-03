@@ -15,6 +15,21 @@ const routes = [
     path: "/movie/:id",
     name: "movie",
     component: () => import("../views/Movie.vue")
+  },
+  {
+    path: "/category/:category",
+    name: "category",
+    component: () => import("../views/Category.vue")
+  },
+  {
+    path: "/year/:year",
+    name: "year",
+    component: () => import("../views/Year.vue")
+  },
+  {
+    path: "/top",
+    name: "top",
+    component: () => import("../views/Top.vue")
   }
 ];
 

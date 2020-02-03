@@ -17,10 +17,9 @@
       <el-row>
         <template>
           <el-table :data="filterMovies" stripe style="width: 100%">
-            <el-table-column prop="title" label="title"> </el-table-column>
-            <el-table-column prop="year" label="year"> </el-table-column>
-            <el-table-column prop="kinopoisk_id" label="kinopoisk_id">
-            </el-table-column>
+            <el-table-column prop="title" label="title"></el-table-column>
+            <el-table-column prop="year" label="year"></el-table-column>
+            <el-table-column prop="kinopoisk_id" label="kinopoisk_id"></el-table-column>
             <!-- <el-table-column prop="material_data.genres" label="Жанр" v-if="material_data.genres">
               <template slot-scope="scope">
                 <p
@@ -30,21 +29,20 @@
                   {{ item }}
                 </p>
               </template>
-            </el-table-column> -->
+            </el-table-column>-->
 
             <el-table-column>
               <template slot-scope="scope">
                 <!-- <router-link tag="button" class="btn btn-small" :to="'/task/'">
                   Open
-                </router-link> -->
+                </router-link>-->
                 <el-button
                   size="mini"
                   type="primary"
                   @click="handleEdit(scope.$index, scope.row)"
                   v-if="scope.row.kinopoisk_id"
-                  ><router-link :to="'/movie/' + scope.row.kinopoisk_id">
-                    Open
-                  </router-link>
+                >
+                  <router-link :to="'/movie/' + scope.row.kinopoisk_id">Open</router-link>
                 </el-button>
               </template>
             </el-table-column>
@@ -81,15 +79,13 @@ export default {
   computed: {
     filterMovies() {
       const filterMovies = this.$store.getters.movies.filter(
-        movie => movie.year > 2018
+        movie => movie.year === 2019
       );
       return filterMovies;
     }
   },
 
-  mounted() {
-    // console.log(this.filterMovies);
-  }
+  mounted() {}
 };
 </script>
 
